@@ -1,5 +1,5 @@
 /*
-    4ur0r14 (C) 2023
+    Stearells (C) 2023
     CHooks
 */
 
