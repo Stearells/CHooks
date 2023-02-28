@@ -1,6 +1,5 @@
 #include "chooks.h"
 
-
 void ch_init_hook(ch_hook* hook)
 {
     /* clear structure fields */
