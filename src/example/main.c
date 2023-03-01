@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 ch_hook my_hook;
 
 void my_func(int n)
