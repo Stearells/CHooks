@@ -16,10 +16,16 @@
 #endif
 
 typedef unsigned char ch_bool;
-
-#define ch_nullptr (void*)0
 #define ch_true 1
 #define ch_false 0
+
+#define ch_nullptr (void*)0
+
+#define _opcode_MOV_RAX 0x48, 0xB8
+#define _opcode_MOV_EAX 0xB8
+#define _opcode_PUSH_EAX 0x50
+#define _opcode_PUSH_RAX _opcode_PUSH_EAX
+#define _opcode_RET 0xC3
 
 /* main hook structure */
 typedef struct ch_hook_s

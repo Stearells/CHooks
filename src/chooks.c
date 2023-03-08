@@ -24,32 +24,22 @@ ch_bool ch_install_hook(ch_hook* hook, void* source, void* destination)
 
     /* create patch */
 #ifdef _WIN64
-    /* 
-       mov rax, destination
-       push rax
-       ret
-    */
 	unsigned char patch[] =
 	{
-		0x48, 0xB8,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x50,
-		0xC3
+		_opcode_MOV_RAX,
+		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // destination address (64-bit)
+		_opcode_PUSH_RAX,
+		_opcode_RET
 	};
 
 	*((ch_uint*)&patch[2]) = (ch_uint)destination;
 #else
-    /* 
-       mov eax, destination
-       push eax
-       ret
-    */
 	unsigned char patch[] =
 	{
-		0xB8,
-		0x00, 0x00, 0x00, 0x00,
-		0x50,
-		0xC3
+		_opcode_MOV_EAX,
+		0x00, 0x00, 0x00, 0x00,  // destination address (32-bit)
+		_opcode_PUSH_EAX,
+		_opcode_RET
 	};
 
 	*((ch_uint*)&patch[1]) = (ch_uint)(ch_uint*)destination;
