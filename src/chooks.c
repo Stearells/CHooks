@@ -1,6 +1,5 @@
 #include "chooks.h"
 
-
 void ch_init_hook(ch_hook* hook)
 {
     /* clear structure fields */
@@ -86,5 +85,5 @@ void *ch_uninstall_hook(ch_hook* hook)
 
 ch_bool ch_is_hook_installed(ch_hook* hook)
 {
-    return hook->original_code != ch_nullptr ? ch_true : ch_false;;
+    return hook->original_code != ch_nullptr ? ch_true : ch_false;
 }
